@@ -1,0 +1,30 @@
+<1>서버로 요청 데스트</1>
+<script>
+    fetch('http://localhost:9091/movies')            
+    .then((Response) => Response.json())
+    .then((data) => {
+        console.log("전체 영화 가져오기 : ", data)
+    });
+
+    fetch('http://localhost:9091/movies/1')            
+    .then((Response) => Response.json())
+    .then((data) => {
+        console.log("영화 하나 가져오기 : ", data)
+    });
+    //영화 등록하기
+    fetch('http://localhost:9091/movies',{
+        method: 'post',
+        headers: {
+            'content-Type': 'application/json',
+        },
+        body: JSON.stringify({
+            movie_title: "19 곰 테드",
+            user_id: 20
+        }), //body 데이터 유형은 반드시 'content-Type' 헤더와 일치해야 한다
+    }).then((response) => response.json())
+    .then((data) => {
+        console.log("register 결과 : ", data)
+    });
+
+
+</script>
