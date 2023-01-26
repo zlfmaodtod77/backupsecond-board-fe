@@ -34,11 +34,10 @@
 <script>
     const urlSearch = new URLSearchParams(location.search);
     const page = urlSearch.get('page') || 1;     //중요
-    fetch('http://localhost:9091/movies?page=${page}')
+    fetch(`http://localhost:9091/movies?page=${page}`)
         .then((response) => response.json())
         .then(movies => {
             const html = movies.movies.map(movie => {
-                console.log(movies);
                 return `
                 <tr>
                     <td>${movie.id}</td>

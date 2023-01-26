@@ -18,17 +18,17 @@
     const buttonClick = () => {
         //영화 등록하기
         fetch('http://localhost:9091/movies', {
-            method: 'post',
+            method: 'POST',
             headers: {
                 'content-type' : 'application/json',
             },
             body: JSON.stringify({
                 movie_title: document.getElementById('movie_title').value,
-                user_id: 20
+                user_id: 7
             }), //body 데이터 유형은 반드시 'content-Type' 헤더와 일치해야 한다
          }).then((response) => response.json())
             .then((data) => {
-                location.href = "movie.html"
+                location.href = "movies.html"
             });
         }
 </script>
